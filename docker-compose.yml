@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+    ensemble:
+        build: ./.
+        image: abc:def
+        restart: always
+        hostname: 'ensemble'
+        #init: true
+        ports:
+            - '57772:57772'
+    opcua:
+        build: milo-demo-server/.
+        image: milo-server:latest
+        hostname: 'milo.digitalpetri.com'
+        ports:
+            - '62541:62541'
+
